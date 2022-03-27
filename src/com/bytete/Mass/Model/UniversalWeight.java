@@ -1,8 +1,8 @@
-package com.bytete.Weight.Model;
+package com.bytete.Mass.Model;
 
-import com.bytete.Weight.Interfaces.*;
-import com.bytete.Weight.enums.Weight;
-import com.bytete.Weight.enums.WeightUnits;
+import com.bytete.Mass.Interfaces.*;
+import com.bytete.Mass.enums.Weight;
+import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
 
@@ -253,6 +253,7 @@ public class UniversalWeight extends InternationalWeight implements
 
     @Override
     public UniversalWeight fromRatti(BigDecimal value) {
+        gram = value.multiply(BigDecimal.valueOf(0.182));
         return this;
     }
 
@@ -262,9 +263,26 @@ public class UniversalWeight extends InternationalWeight implements
     }
 
     @Override
+    public UniversalWeight fromGram(BigDecimal gram) {
+        super.fromGram(gram);
+        return this;
+    }
+
+    @Override
+    public UniversalWeight fromKilogram(BigDecimal kilogram) {
+        super.fromKilogram(kilogram);
+        return this;
+    }
+
+    @Override
+    public UniversalWeight fromMilligram(BigDecimal milligram) {
+        super.fromMilligram(milligram);
+        return this;
+    }
+
+    @Override
     public UniversalWeight fromCarat(BigDecimal value) {
         gram = value.multiply(Weight.GERM_WEIGHT_CARAT_TO_STANDARD);
-        System.out.println(gram);
         return this;
     }
 
@@ -297,4 +315,6 @@ public class UniversalWeight extends InternationalWeight implements
         fromGram(metricgram.multiply(BigDecimal.valueOf(1_000)));
         return this;
     }
+
+
 }

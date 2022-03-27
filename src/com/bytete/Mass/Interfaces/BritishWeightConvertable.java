@@ -1,6 +1,4 @@
-package com.bytete.Weight.Interfaces;
-
-import com.bytete.Weight.Model.BritishWeight;
+package com.bytete.Mass.Interfaces;
 
 import java.math.BigDecimal;
 

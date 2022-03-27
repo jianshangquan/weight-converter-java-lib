@@ -1,11 +1,9 @@
-package com.bytete.Weight.Model;
+package com.bytete.Mass.Model;
 
-import com.bytete.Weight.Interfaces.BritishWeightConvertable;
-import com.bytete.Weight.Interfaces.BurmeseWeightConvertable;
-import com.bytete.Weight.Interfaces.InternationWeightConvertable;
-import com.bytete.Weight.Interfaces.WeightConvertable;
-import com.bytete.Weight.enums.Weight;
-import com.bytete.Weight.enums.WeightUnits;
+import com.bytete.Mass.Interfaces.BurmeseWeightConvertable;
+import com.bytete.Mass.Interfaces.WeightConvertable;
+import com.bytete.Mass.enums.Weight;
+import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -170,12 +168,24 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public WeightConvertable convertFrom(BigDecimal value, WeightUnits.Types type) {
-        return null;
+        switch (type){
+            case SI_SYSTEM : convertFrom(new InternationalWeight(value));
+                break;
+            case GERM_WEIGHT_SYSTEM : convertFrom(new GermWeight(value));
+                break;
+            case INDIAN_WEIGHT_SYSTEM: convertFrom(new IndianWeight(value));
+                break;
+            case BRITISH_SYSTEM: convertFrom(new BritishWeight(value));
+                break;
+            case BURMSESE_WEIGHT_SYSTEM: convertFrom(new BurmeseWeight(value));
+                break;
+        }
+        return this;
     }
 
     @Override
     public WeightConvertable convertFrom(double value, WeightUnits.Types type) {
-        return null;
+        return convertFrom(BigDecimal.valueOf(value), type);
     }
 
     @Override

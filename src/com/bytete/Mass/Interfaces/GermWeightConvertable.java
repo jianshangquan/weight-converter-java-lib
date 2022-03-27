@@ -1,4 +1,4 @@
-package com.bytete.Weight.Interfaces;
+package com.bytete.Mass.Interfaces;
 
 import java.math.BigDecimal;
 

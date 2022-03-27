@@ -1,4 +1,4 @@
-package com.bytete.Weight.enums;
+package com.bytete.Mass.enums;
 
 import java.math.BigDecimal;
 

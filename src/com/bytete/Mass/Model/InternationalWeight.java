@@ -1,10 +1,10 @@
-package com.bytete.Weight.Model;
+package com.bytete.Mass.Model;
 
-import com.bytete.Weight.Interfaces.BritishWeightConvertable;
-import com.bytete.Weight.Interfaces.BurmeseWeightConvertable;
-import com.bytete.Weight.Interfaces.InternationWeightConvertable;
-import com.bytete.Weight.Interfaces.WeightConvertable;
-import com.bytete.Weight.enums.WeightUnits;
+import com.bytete.Mass.Interfaces.BritishWeightConvertable;
+import com.bytete.Mass.Interfaces.BurmeseWeightConvertable;
+import com.bytete.Mass.Interfaces.InternationWeightConvertable;
+import com.bytete.Mass.Interfaces.WeightConvertable;
+import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
 
@@ -139,7 +139,7 @@ public class InternationalWeight implements InternationWeightConvertable {
 
     @Override
     public InternationalWeight fromMilligram(BigDecimal milligram) {
-        this.gram.divide(BigDecimal.valueOf(1_000));
+        this.gram = milligram.multiply(BigDecimal.valueOf(0.001));
         return this;
     }
 
@@ -159,7 +159,7 @@ public class InternationalWeight implements InternationWeightConvertable {
         switch (type){
             case SI_SYSTEM : convertFrom(new InternationalWeight(value));
                 break;
-            case GERM_WEIGHT_SYSTEM : {}
+            case GERM_WEIGHT_SYSTEM : convertFrom(new GermWeight(value));
                 break;
             case INDIAN_WEIGHT_SYSTEM: convertFrom(new IndianWeight(value));
                 break;

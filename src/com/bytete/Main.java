@@ -1,9 +1,6 @@
 package com.bytete;
 
-import com.bytete.Weight.Interfaces.WeightConvertable;
-import com.bytete.Weight.Model.*;
-import com.bytete.Weight.WeightConverter;
-import com.bytete.Weight.enums.WeightUnits;
+import com.bytete.Mass.WeightConverter;
 
 import java.math.BigDecimal;
 
@@ -11,11 +8,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // fromPound
-        // fromOunce
-        // fromYway     =>      need to check
-        // fromCarat
-        BigDecimal result = WeightConverter.getInstance().fromCarat(BigDecimal.valueOf(100)).toPound();
+        BigDecimal result = WeightConverter.getInstance().fromTon(BigDecimal.valueOf(1)).toPound();
         System.out.println(result);
+
     }
 }

@@ -1,6 +1,6 @@
-package com.bytete.Weight;
+package com.bytete.Mass;
 
-import com.bytete.Weight.Model.UniversalWeight;
+import com.bytete.Mass.Model.UniversalWeight;
 
 public class WeightConverter {
     public static int decimalPlaces = 8;

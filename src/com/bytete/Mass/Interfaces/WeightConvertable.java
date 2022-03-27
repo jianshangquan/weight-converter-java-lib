@@ -1,8 +1,6 @@
-package com.bytete.Weight.Interfaces;
+package com.bytete.Mass.Interfaces;
 
-import com.bytete.Weight.WeightConverter;
-import com.bytete.Weight.enums.Weight;
-import com.bytete.Weight.enums.WeightUnits;
+import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
 
