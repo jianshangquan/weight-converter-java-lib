@@ -211,4 +211,11 @@ public class InternationalWeight implements InternationWeightConvertable {
     public UniversalWeight toUniversalWeight() {
         return new UniversalWeight(this);
     }
+
+    @Override
+    public String toString() {
+        return "InternationalWeight{" +
+                ", gram=" + gram +
+                '}';
+    }
 }

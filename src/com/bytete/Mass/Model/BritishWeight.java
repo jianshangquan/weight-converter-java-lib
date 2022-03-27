@@ -171,4 +171,11 @@ public class BritishWeight implements BritishWeightConvertable {
     public UniversalWeight toUniversalWeight() {
         return new UniversalWeight(this);
     }
+
+    @Override
+    public String toString() {
+        return "BritishWeight{" +
+                "pound=" + pound +
+                '}';
+    }
 }

@@ -1,5 +1,6 @@
 package com.bytete.Mass.Interfaces;
 
+import com.bytete.Mass.Model.*;
 import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
@@ -13,11 +14,10 @@ public interface WeightConvertable {
     WeightConvertable convertFrom(BigDecimal value, WeightUnits.Types type);
     WeightConvertable convertFrom(double value, WeightUnits.Types type);
 
-    WeightConvertable toBritishWeight();
-    WeightConvertable toBurmeseWeight();
-    WeightConvertable toIndianWeight();
-    WeightConvertable toGermWeight();
-    WeightConvertable toInternationalWeight();
-    WeightConvertable toUniversalWeight();
-
+    BritishWeight toBritishWeight();
+    BurmeseWeight toBurmeseWeight();
+    IndianWeight toIndianWeight();
+    GermWeight toGermWeight();
+    InternationalWeight toInternationalWeight();
+    UniversalWeight toUniversalWeight();
 }

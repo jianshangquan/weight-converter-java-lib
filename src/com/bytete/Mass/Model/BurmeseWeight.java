@@ -224,4 +224,13 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
     public UniversalWeight toUniversalWeight() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "BurmeseWeight{" +
+                "kyat=" + kyat +
+                ", pae=" + pae +
+                ", yway=" + yway +
+                '}';
+    }
 }

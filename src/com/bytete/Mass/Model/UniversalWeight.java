@@ -332,4 +332,8 @@ public class UniversalWeight extends InternationalWeight implements
     }
 
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -107,4 +107,10 @@ public class IndianWeight implements IndianWeightConvertable {
         return new UniversalWeight(this);
     }
 
+    @Override
+    public String toString() {
+        return "IndianWeight{" +
+                "ratti=" + ratti +
+                '}';
+    }
 }

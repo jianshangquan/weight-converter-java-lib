@@ -110,4 +110,11 @@ public class GermWeight implements GermWeightConvertable {
     public UniversalWeight toUniversalWeight() {
         return new UniversalWeight(this);
     }
+
+    @Override
+    public String toString() {
+        return "GermWeight{" +
+                "carat=" + carat +
+                '}';
+    }
 }
