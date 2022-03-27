@@ -8,6 +8,7 @@ public interface WeightConvertable {
     String STANDARD_WEIGHT_UNIT = "gram";
 
     BigDecimal getStandardWeight();
+    WeightConvertable setStandardWeight(BigDecimal gram);
     WeightConvertable convertFrom(WeightConvertable convertable);
     WeightConvertable convertFrom(BigDecimal value, WeightUnits.Types type);
     WeightConvertable convertFrom(double value, WeightUnits.Types type);

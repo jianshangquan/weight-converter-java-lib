@@ -44,13 +44,19 @@ public class IndianWeight implements IndianWeightConvertable {
     }
 
     @Override
-    public WeightConvertable convertFrom(WeightConvertable convertable) {
+    public IndianWeight setStandardWeight(BigDecimal gram) {
+        ratti = gram.multiply(Weight.STANDARD_TO_INDIAN_RATTI);
+        return this;
+    }
+
+    @Override
+    public IndianWeight convertFrom(WeightConvertable convertable) {
         ratti = convertable.getStandardWeight().multiply(Weight.STANDARD_TO_INDIAN_RATTI);
         return this;
     }
 
     @Override
-    public WeightConvertable convertFrom(BigDecimal value, WeightUnits.Types type) {
+    public IndianWeight convertFrom(BigDecimal value, WeightUnits.Types type) {
         switch (type){
             case SI_SYSTEM : convertFrom(new InternationalWeight(value));
                 break;

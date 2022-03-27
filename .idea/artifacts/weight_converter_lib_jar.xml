@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="weight-converter-lib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/weight_converter_lib_jar</output-path>
+    <root id="archive" name="weight converter java-lib.jar">
+      <element id="module-output" name="weight converter java-lib" />
+    </root>
+  </artifact>
+</component>

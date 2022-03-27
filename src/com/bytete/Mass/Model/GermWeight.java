@@ -45,10 +45,19 @@ public class GermWeight implements GermWeightConvertable {
     }
 
     @Override
+    public GermWeight setStandardWeight(BigDecimal gram) {
+        this.carat = gram.multiply(Weight.STANDARD_TO_GERM_WEIGHT_CARAT);
+        return this;
+    }
+
+    @Override
     public GermWeight convertFrom(WeightConvertable convertable) {
         carat = convertable.getStandardWeight().multiply(Weight.STANDARD_TO_GERM_WEIGHT_CARAT);
         return this;
     }
+
+
+
 
     @Override
     public WeightConvertable convertFrom(BigDecimal value, WeightUnits.Types type) {

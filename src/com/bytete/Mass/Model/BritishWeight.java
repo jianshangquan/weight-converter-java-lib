@@ -109,6 +109,12 @@ public class BritishWeight implements BritishWeightConvertable {
     }
 
     @Override
+    public WeightConvertable setStandardWeight(BigDecimal gram) {
+        this.pound = gram.multiply(Weight.STANDARD_TO_BRITISH_UK_POUND_WEIGHT);
+        return this;
+    }
+
+    @Override
     public BritishWeight convertFrom(WeightConvertable convertable) {
         pound = convertable.getStandardWeight().multiply(Weight.STANDARD_TO_BRITISH_UK_POUND_WEIGHT);
         return this;

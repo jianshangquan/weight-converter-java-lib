@@ -160,6 +160,13 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
     }
 
     @Override
+    public BurmeseWeight setStandardWeight(BigDecimal gram) {
+        BigDecimal pae = gram.multiply(Weight.STANDARD_TO_BURMESE_PAE_WEIGHT);
+        fromPae(pae);
+        return this;
+    }
+
+    @Override
     public BurmeseWeight convertFrom(WeightConvertable convertable) {
         BigDecimal pae = convertable.getStandardWeight().multiply(Weight.STANDARD_TO_BURMESE_PAE_WEIGHT);
         fromPae(pae);

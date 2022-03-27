@@ -149,6 +149,12 @@ public class InternationalWeight implements InternationWeightConvertable {
     }
 
     @Override
+    public InternationalWeight setStandardWeight(BigDecimal gram) {
+        this.gram = gram;
+        return this;
+    }
+
+    @Override
     public InternationalWeight convertFrom(WeightConvertable convertable) {
         gram = convertable.getStandardWeight();
         return this;

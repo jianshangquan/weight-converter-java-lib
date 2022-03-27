@@ -16,6 +16,15 @@ public class UniversalWeight extends InternationalWeight implements
         super();
     }
 
+
+    public UniversalWeight(String gram){
+        this.gram = new BigDecimal(gram);
+    }
+
+    public UniversalWeight(double gram){
+        this.gram = BigDecimal.valueOf(gram);
+    }
+
     public UniversalWeight(BigDecimal gram){
         this.gram = gram;
     }
@@ -204,6 +213,12 @@ public class UniversalWeight extends InternationalWeight implements
     @Override
     public BigDecimal getStandardWeight() {
         return super.getStandardWeight();
+    }
+
+    @Override
+    public UniversalWeight setStandardWeight(BigDecimal gram) {
+        this.gram = gram;
+        return this;
     }
 
     @Override
