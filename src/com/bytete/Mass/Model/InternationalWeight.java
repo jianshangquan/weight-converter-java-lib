@@ -77,22 +77,22 @@ public class InternationalWeight implements InternationWeightConvertable {
 
     @Override
     public BigDecimal toDekagram() {
-        return toGram().divide(BigDecimal.valueOf(100));
+        return toGram().divide(BigDecimal.valueOf(100), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toHectogram() {
-        return toGram().divide(BigDecimal.valueOf(1_000));
+        return toGram().divide(BigDecimal.valueOf(1_000), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toMetricgram() {
-        return toGram().divide(BigDecimal.valueOf(10_000));
+        return toGram().divide(BigDecimal.valueOf(10_000), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toKilogram() {
-        return toGram().divide(BigDecimal.valueOf(100_000));
+        return toGram().divide(BigDecimal.valueOf(100_000), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override

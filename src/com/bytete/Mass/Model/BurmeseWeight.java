@@ -81,17 +81,17 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public BigDecimal toSeitThar() {
-        return toViss().divide(BigDecimal.valueOf(4));
+        return toViss().divide(BigDecimal.valueOf(4),WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toWattThar() {
-        return toViss().divide(BigDecimal.valueOf(2));
+        return toViss().divide(BigDecimal.valueOf(2), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toKyat() {
-        return toPae().divide(BigDecimal.valueOf(16));
+        return toPae().divide(BigDecimal.valueOf(16), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public BigDecimal toPae() {
-        return kyat.multiply(BigDecimal.valueOf(16)).add(pae).add(yway.divide(BigDecimal.valueOf(8)));
+        return kyat.multiply(BigDecimal.valueOf(16)).add(pae).add(yway.divide(BigDecimal.valueOf(8), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING));
     }
 
     @Override
@@ -121,20 +121,24 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public BigDecimal toYwayLay() {
-        return toYway().divide(BigDecimal.valueOf(2));
+        return toYway().divide(BigDecimal.valueOf(2), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BurmeseWeightConvertable fromKyat(BigDecimal kyat) {
         this.kyat = kyat.setScale(0, RoundingMode.HALF_DOWN);
-        this.pae = kyat.subtract(this.kyat).multiply(BigDecimal.valueOf(16)).setScale(0, RoundingMode.HALF_DOWN);
-        this.yway = kyat.multiply(BigDecimal.valueOf(16)).remainder(BigDecimal.ONE).multiply(BigDecimal.valueOf(8));
+        this.pae = kyat.subtract(this.kyat)
+                        .multiply(BigDecimal.valueOf(16))
+                        .setScale(0, RoundingMode.HALF_DOWN);
+        this.yway = kyat.multiply(BigDecimal.valueOf(16))
+                        .remainder(BigDecimal.ONE).multiply(BigDecimal.valueOf(8));
         return this;
     }
 
     @Override
     public BurmeseWeightConvertable fromPae(BigDecimal pae) {
-        this.kyat = pae.divide(BigDecimal.valueOf(16)).setScale(0, RoundingMode.DOWN);
+        this.kyat = pae.divide(BigDecimal.valueOf(16), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING)
+                        .setScale(0, RoundingMode.DOWN);
         this.pae = pae.subtract(this.kyat.multiply(BigDecimal.valueOf(16))).setScale(0, RoundingMode.DOWN);
         this.yway = pae.remainder(BigDecimal.ONE).multiply(BigDecimal.valueOf(8));
         return this;
@@ -142,9 +146,13 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public BurmeseWeightConvertable fromYway(BigDecimal yway) {
-        this.kyat = yway.divide(BigDecimal.valueOf(128)).setScale(0, RoundingMode.HALF_DOWN);
-        this.pae = yway.subtract(this.kyat.multiply(BigDecimal.valueOf(128))).divide(BigDecimal.valueOf(8)).setScale(0, RoundingMode.HALF_DOWN);
-        this.yway = yway.subtract(this.kyat.multiply(BigDecimal.valueOf(128))).subtract(this.pae.multiply(BigDecimal.valueOf(8)));
+        this.kyat = yway.divide(BigDecimal.valueOf(128), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING)
+                        .setScale(0, RoundingMode.HALF_DOWN);
+        this.pae = yway.subtract(this.kyat.multiply(BigDecimal.valueOf(128)))
+                        .divide(BigDecimal.valueOf(8), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING)
+                        .setScale(0, RoundingMode.HALF_DOWN);
+        this.yway = yway.subtract(this.kyat.multiply(BigDecimal.valueOf(128)))
+                        .subtract(this.pae.multiply(BigDecimal.valueOf(8)));
         return this;
     }
 

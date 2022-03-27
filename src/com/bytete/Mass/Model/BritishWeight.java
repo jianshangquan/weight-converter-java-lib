@@ -38,27 +38,27 @@ public class BritishWeight implements BritishWeightConvertable {
 
     @Override
     public BigDecimal toStone() {
-        return pound.divide(BigDecimal.valueOf(13.5));
+        return pound.divide(BigDecimal.valueOf(13.5), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toQuarter() {
-        return pound.divide(BigDecimal.valueOf(28));
+        return pound.divide(BigDecimal.valueOf(28), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toHundredWeight() {
-        return pound.divide(BigDecimal.valueOf(112));
+        return pound.divide(BigDecimal.valueOf(112), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toTon() {
-        return pound.divide(BigDecimal.valueOf(2240));
+        return pound.divide(BigDecimal.valueOf(2240), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
     public BigDecimal toSlug() {
-        return pound.divide(BigDecimal.valueOf(32.17404856));
+        return pound.divide(BigDecimal.valueOf(32.17404856), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override

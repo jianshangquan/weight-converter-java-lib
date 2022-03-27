@@ -147,7 +147,7 @@ public class UniversalWeight extends InternationalWeight implements
 
     @Override
     public BigDecimal toKyat() {
-        return toPae().divide(BigDecimal.valueOf(16));
+        return toPae().divide(BigDecimal.valueOf(16), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING);
     }
 
     @Override
@@ -182,7 +182,8 @@ public class UniversalWeight extends InternationalWeight implements
 
     @Override
     public UniversalWeight fromKyat(BigDecimal kyat) {
-        gram = kyat.divide(BigDecimal.valueOf(16)).multiply(Weight.BURMESE_PAE_WEIGHT_TO_STANDARD);
+        gram = kyat.divide(BigDecimal.valueOf(16), WeightConvertable.DEFAULT_WEIGHT_DECIMAL_PLACE, WeightConvertable.DEFAULT_ROUNDING)
+                    .multiply(Weight.BURMESE_PAE_WEIGHT_TO_STANDARD);
         return this;
     }
 

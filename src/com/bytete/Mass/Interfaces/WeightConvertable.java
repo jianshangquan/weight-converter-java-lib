@@ -4,9 +4,12 @@ import com.bytete.Mass.Model.*;
 import com.bytete.Mass.enums.WeightUnits;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public interface WeightConvertable {
     String STANDARD_WEIGHT_UNIT = "gram";
+    short DEFAULT_WEIGHT_DECIMAL_PLACE = 16;
+    RoundingMode DEFAULT_ROUNDING = RoundingMode.HALF_EVEN;
 
     BigDecimal getStandardWeight();
     WeightConvertable setStandardWeight(BigDecimal gram);
