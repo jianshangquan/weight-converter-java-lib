@@ -134,8 +134,8 @@ public class BurmeseWeight implements BurmeseWeightConvertable {
 
     @Override
     public BurmeseWeightConvertable fromPae(BigDecimal pae) {
-        this.kyat = pae.divide(BigDecimal.valueOf(16)).setScale(0, RoundingMode.HALF_DOWN);
-        this.pae = pae.subtract(this.kyat.multiply(BigDecimal.valueOf(16))).setScale(0, RoundingMode.HALF_DOWN);
+        this.kyat = pae.divide(BigDecimal.valueOf(16)).setScale(0, RoundingMode.DOWN);
+        this.pae = pae.subtract(this.kyat.multiply(BigDecimal.valueOf(16))).setScale(0, RoundingMode.DOWN);
         this.yway = pae.remainder(BigDecimal.ONE).multiply(BigDecimal.valueOf(8));
         return this;
     }
